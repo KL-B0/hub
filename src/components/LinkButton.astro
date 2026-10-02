@@ -7,12 +7,7 @@ export interface Props {
   rel?: string;
 }
 
-const {
-  class: className,
-  href,
-  "aria-label": ariaLabel,
-  rel,
-} = Astro.props;
+const { class: className, href, "aria-label": ariaLabel, rel } = Astro.props;
 ---
 
 <a
