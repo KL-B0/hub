@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+
 :root {
   color-scheme: light dark;
 
@@ -21,6 +26,8 @@
 }
 
 @theme inline {
+  --font-sans: "Inter", sans-serif;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
@@ -29,6 +36,10 @@
 }
 
 @layer base {
+  html {
+    font-family: var(--font-sans);
+  }
+
   * {
     scrollbar-width: auto;
     scrollbar-color: var(--color-background) transparent;

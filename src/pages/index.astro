@@ -35,17 +35,68 @@ const links = [
     ariaLabel: "Send an email to Lorenzo Capalbo",
   },
 ];
+
+const title = "Lorenzo Capalbo";
+const description = "I design and build software products";
+const author = "Lorenzo Capalbo";
+const canonicalURL = "https://hub.lorenzocapalbo.com/";
+const socialImageURL = `${canonicalURL}og.png`;
+const language = "en";
 ---
 
-<html lang="en">
+<html lang={language}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
 
+    <!-- General tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="author" content={author} />
+    <meta name="url" content={canonicalURL} />
+    <meta name="language" content={language} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph tags -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={title} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:locale" content={language} />
+    <meta property="og:image" content={socialImageURL} />
+
+    <!-- Twitter tags -->
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:image" content={socialImageURL} />
+    <meta property="twitter:image:src" content={socialImageURL} />
+
+    <!-- Open Graph tags -->
+    <meta itemprop="name" content={title} />
+    <meta itemprop="description" content={description} />
+    <link itemprop="url" rel="canonical" href={canonicalURL} />
+    <meta itemprop="image" content={socialImageURL} />
+    <script is:inline defer type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "https://lorenzocapalbo.com/",
+        "sameAs": [
+          "https://www.linkedin.com/in/lorenzo-capalbo/",
+          "https://github.com/KL-B0",
+          "https://gitlab.com/KL-B0"
+        ],
+        "name": "Lorenzo Capalbo"
+      }
+    </script>
+
+    <!-- Icons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <title>Lorenzo Capalbo</title>
   </head>
   <body
     class:list={["h-dvh w-full", "antialiased bg-background text-foreground"]}
