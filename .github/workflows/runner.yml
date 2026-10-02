@@ -1,0 +1,32 @@
+name: 🔗 GHA
+
+on: [push, pull_request, workflow_dispatch]
+
+concurrency:
+  group: ci-${{github.actor}}-${{github.head_ref || github.run_number}}-${{github.ref}}-runner
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: ⚙ Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: 🧾 Checkout
+        uses: actions/checkout@v4
+
+      - name: 💽 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 26
+          cache: "npm"
+
+      - name: 📦 Restore Dependencies
+        run: npm install
+
+      - name: 📝 Check Code Format
+        run: npm run format:check
+
+      - name: ⚙️ Build Project
+        run: npm run build
