@@ -1,9 +1,8 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+:root {
+  color-scheme: light dark;
 
-:root,
-html[data-theme="light"] {
   --background: #f3f5f8;
   --foreground: #1f2937;
   --accent: #4f46e5;
@@ -11,12 +10,14 @@ html[data-theme="light"] {
   --border: #dbe2ea;
 }
 
-html[data-theme="dark"] {
-  --background: #181c23;
-  --foreground: #f8fafc;
-  --accent: #3b82f6;
-  --card: #232832;
-  --border: #374151;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #181c23;
+    --foreground: #f8fafc;
+    --accent: #3b82f6;
+    --card: #232832;
+    --border: #374151;
+  }
 }
 
 @theme inline {
