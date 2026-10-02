@@ -1,17 +1,59 @@
 ---
+import HeroSection from "@/components/HeroSection.astro";
+import LinkSection from "@/components/LinkSection.astro";
+import Footer from "@/components/Footer.astro";
+import "@/styles/global.css";
 
+import LinkedInIcon from "@/assets/icons/LinkedIn.svg";
+import WebsiteIcon from "@/assets/icons/Website.svg";
+import GitHubIcon from "@/assets/icons/GitHub.svg";
+import MailIcon from "@/assets/icons/Mail.svg";
+
+const links = [
+  {
+    title: "LinkedIn",
+    icon: LinkedInIcon,
+    href: "https://www.linkedin.com/in/lorenzo-capalbo/",
+    ariaLabel: "Connect with Lorenzo Capalbo on LinkedIn (opens in new tab)",
+  },
+  {
+    title: "Portfolio",
+    icon: WebsiteIcon,
+    href: "https:///lorenzocapalbo.com/",
+    ariaLabel: "Visit Lorenzo Capalbo's portfolio (opens in new tab)",
+  },
+  {
+    title: "GitHub",
+    icon: GitHubIcon,
+    href: "https://github.com/KL-B0",
+    ariaLabel: "View Lorenzo Capalbo's projects on GitHub (opens in new tab)",
+  },
+  {
+    title: "Email",
+    icon: MailIcon,
+    href: "mailto:contact@lorenzocapalbo.com",
+    ariaLabel: "Send an email to Lorenzo Capalbo",
+  },
+];
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>Lorenzo Capalbo</title>
+  </head>
+  <body
+    class:list={["h-dvh w-full", "antialiased bg-background text-foreground"]}
+  >
+    <div class:list={["max-w-lg mx-auto h-full", "flex flex-col gap-8"]}>
+      <HeroSection />
+      <LinkSection links={links} />
+      <Footer />
+    </div>
+  </body>
 </html>

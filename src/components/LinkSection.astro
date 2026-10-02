@@ -1,0 +1,40 @@
+---
+import type { SvgComponent } from "astro/types";
+import LinkButton from "./LinkButton.astro";
+import ArrowUpRightIcon from "@/assets/icons/ArrowUpRight.svg";
+
+export interface Props {
+  links: {
+    title: string;
+    icon: SvgComponent & ImageMetadata;
+    href: string;
+    ariaLabel?: string;
+  }[];
+}
+
+const { links } = Astro.props;
+---
+
+<section class="px-4">
+  <ul class="flex flex-col flex-wrap gap-4">
+    {links.map((item) => (
+      <li>
+        <LinkButton
+          href={item.href}
+          aria-label={
+            item.ariaLabel ?? `Visit ${item.title} (opens in new tab)`
+          }
+        >
+          <item.icon width={24} height={24} aria-hidden="true" />
+          <p class="text-lg">{item.title}</p>
+          <ArrowUpRightIcon
+            width={20}
+            height={20}
+            class="ms-auto text-foreground/75"
+            aria-hidden="true"
+          />
+        </LinkButton>
+      </li>
+    ))}
+  </ul>
+</section>

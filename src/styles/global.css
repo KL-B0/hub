@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+:root,
+html[data-theme="light"] {
+  --background: #dcdfe5;
+  --foreground: #23272f;
+  --accent: #e62e3d;
+  --badge: #2b7fff;
+  --primary: #1d293d;
+  --secondary: #fff;
+
+  --color-card: #f6f7f9;
+  --color-card-muted: #f6f7f9;
+  --color-border: #ffffff0d;
+}
+
+html[data-theme="dark"] {
+  --background: #191c22;
+  --foreground: #f6f7f9;
+  --accent: #cc3340;
+  --badge: #ff4c29;
+  --primary: #eeeeee;
+  --secondary: #2c394b;
+
+  --color-card: #23272f;
+  --color-card-muted: #23272f;
+  --color-border: #ffffff0d;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-badge: var(--badge);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+}
+
+@layer base {
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: var(--color-background) transparent;
+  }
+}
